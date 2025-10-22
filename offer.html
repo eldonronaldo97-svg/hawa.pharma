@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hawa Pharma — عرض لوشن إزالة الشعر</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-ar">
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">Hawa Pharma</div>
+      <nav class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="offer.html">العرض</a>
+        <button id="lang-toggle" class="lang-toggle">EN</button>
+      </nav>
+    </div>
+  </header>
+  <main class="container main-content">
+    <section class="hero offer-hero">
+      <h1 data-en="Get smooth hair-free skin fast!" data-ar="احصلي على بشرة ناعمة بدون ألم في دقائق">احصلي على بشرة ناعمة بدون ألم في دقائق</h1>
+      <p data-en="Hawa Lotion removes hair gently and quickly." data-ar="لوشن Hawa يزيل الشعر بلطف وبسرعة.">لوشن Hawa يزيل الشعر بلطف وبسرعة.</p>
+      <button class="btn" id="open-form" data-en="Order Now" data-ar="اطلب الآن">اطلب الآن</button>
+    </section>
+    <section class="order-form-section" id="order-section">
+      <h2 data-en="Order Form" data-ar="نموذج الطلب">نموذج الطلب</h2>
+      <form id="order-form" class="order-form">
+        <label>الاسم<input type="text" name="name" required></label>
+        <label>رقم الهاتف<input type="tel" name="phone" required></label>
+        <label>المدينة<input type="text" name="city" required></label>
+        <label>العنوان<textarea name="address" required></textarea></label>
+        <label>العرض<input type="text" name="offer" value="لوشن إزالة الشعر" readonly></label>
+        <button type="submit" class="btn">إرسال الطلب</button>
+      </form>
+      <div id="form-message"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">© Hawa Pharma</div>
+  </footer>
+  <script src="assets/script.js"></script>
+</body>
+</html>

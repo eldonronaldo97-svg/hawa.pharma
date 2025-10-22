@@ -1,0 +1,6 @@
+body {font-family: Arial, sans-serif; background: #fff; color: #333; margin: 0; padding: 0;}
+.container {width: 90%; margin: auto;}
+header, footer {background: #f8f8f8; padding: 10px 0; text-align: center;}
+.hero {text-align: center; padding: 50px 0;}
+.btn {background: #2b7a78; color: #fff; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;}
+.order-form {display: grid; gap: 10px; max-width: 400px; margin: auto;}
