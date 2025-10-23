@@ -11,5 +11,10 @@ header, footer {text-align:center; padding:15px; background:#f8f8f8;}
 .btn.success {background:green;}
 .countdown {font-weight:bold; color:#e67e22; margin:10px 0;}
 form {margin-top:20px; text-align:right;}
-input, select, textarea {width:100%; margin:8px 0; padding:10px; border:1px solid #ccc; border-radius:6px;}
-footer {color:#555; font-size:14px;}
+input, select, textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  font-size: 16px; /* 👈 دا أهم سطر - يمنع الزووم */
+  box-sizing: border-box;
+}
