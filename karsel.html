@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجموعة كارسيل الأصلية لعلاج الشعر التالف</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- 🧴 قسم الهيرو -->
+  <section class="hero">
+    <img src="assets/karseell hero.jpg" alt="Carsil Hero" style="width:100%;height:auto;display:block;">
+  </section>
+
+  <!-- 🧾 العنوان -->
+  <header>
+    <h1>مجموعة كارسيل الأصلية لعلاج الشعر التالف</h1>
+  </header>
+
+  <!-- 📦 العروض -->
+  <main class="container">
+    <section class="offers">
+      <div class="offer-card">
+        <img src="assets/offer1.jpg" alt="Offer 1">
+        <h3>عرض 1️⃣</h3>
+        <p>الماسك + السيروم — 599ج والشحن مجانًا</p>
+        <button class="btn" data-offer="عرض 1️⃣ - الماسك + السيروم 599ج والشحن مجانًا">اطلبي الآن</button>
+      </div>
+
+      <div class="offer-card">
+        <img src="assets/offer2.jpg" alt="Offer 2">
+        <h3>عرض 2️⃣</h3>
+        <p>المجموعة الكاملة (ماسك + سيروم + شامبو + بلسم) — 799ج بدل 1200ج والشحن مجانًا</p>
+        <div id="offer2-countdown" class="countdown"></div>
+        <button class="btn" data-offer="عرض 2️⃣ - المجموعة الكاملة 799ج بدل 1200ج والشحن مجانًا">اطلبي الآن</button>
+      </div>
+    </section>
+
+    <!-- 🧾 نموذج الطلب -->
+    <section id="order-form">
+      <h2>تأكيد الطلب الآن</h2>
+      <form id="orderForm">
+        <input name="name" type="text" placeholder="الاسم الكامل" required>
+        <input name="phone" type="tel" placeholder="رقم الهاتف" required>
+        <select name="city" required>
+          <option value="">اختر المحافظة</option>
+          <option>القاهرة</option><option>الجيزة</option><option>الإسكندرية</option>
+          <option>المنصورة</option><option>أسيوط</option><option>طنطا</option>
+          <option>المنوفية</option><option>سوهاج</option><option>قنا</option>
+          <option>دمياط</option><option>بورسعيد</option><option>السويس</option>
+          <option>الشرقية</option><option>البحيرة</option><option>كفر الشيخ</option>
+          <option>الفيوم</option><option>بني سويف</option><option>مطروح</option>
+          <option>الأقصر</option><option>أسوان</option><option>الوادي الجديد</option>
+          <option>شمال سيناء</option><option>جنوب سيناء</option>
+        </select>
+        <textarea name="address" placeholder="العنوان بالتفصيل" required></textarea>
+        <input type="text" name="offer" id="offerInput" readonly placeholder="العرض المختار">
+        <button id="submitBtn" type="submit" class="btn">تأكيد الطلب الآن</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>© 2025 Carsil</footer>
+
+  <script>
+    // 📍 Facebook Pixel Code
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1302281691617529');
+    fbq('track', 'PageView');
+    // 📍 End Facebook Pixel Code
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // اختيار العرض
+      document.querySelectorAll('[data-offer]').forEach(btn => {
+        btn.addEventListener('click', function(){
+          document.getElementById('offerInput').value = this.dataset.offer;
+          document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // عداد العرض
+      const countdown = document.getElementById('offer2-countdown');
+      if(countdown){
+        let end = localStorage.getItem('carsil_offer2_end');
+        if(!end){ 
+          end = Date.now() + 24*60*60*1000; 
+          localStorage.setItem('carsil_offer2_end', end); 
+        }
+        setInterval(()=>{
+          const diff = end - Date.now();
+          if(diff <= 0){ countdown.textContent = 'انتهى العرض'; return; }
+          const h = Math.floor(diff / 3600000);
+          const m = Math.floor((diff % 3600000) / 60000);
+          const s = Math.floor((diff % 60000) / 1000);
+          countdown.textContent = `العرض ينتهي خلال ${h}س ${m}د ${s}ث`;
+        }, 1000);
+      }
+
+      // إرسال النموذج
+      const form = document.getElementById('orderForm');
+      const btn = document.getElementById('submitBtn');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        btn.textContent = 'انتظر قليلاً...';
+        btn.classList.add('disabled');
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        fetch('https://script.google.com/macros/s/AKfycbwq4viyRJ-Okx8p8I4KpA9FbGrvveO8ue8Drc6OxWyAZFjyxegqFX4cX5qcq8SblBbTqg/exec', {
+          method:'POST',
+          body:formData
+        })
+        .then(()=>{
+          btn.textContent = 'تم تأكيد طلبك ✓';
+          btn.classList.remove('disabled');
+          btn.classList.add('success');
+        })
+        .catch(()=>{
+          alert('حدث خطأ أثناء الإرسال. حاول مرة أخرى.');
+          btn.textContent = 'تأكيد الطلب الآن';
+          btn.classList.remove('disabled');
+          btn.disabled = false;
+        });
+      });
+
+    });
+  </script>
+
+</body>
+</html>
