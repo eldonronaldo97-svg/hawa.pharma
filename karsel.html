@@ -31,9 +31,9 @@
       <div class="offer-card">
         <img src="assets/offer2.jpg" alt="Offer 2">
         <h3>عرض 2️⃣</h3>
-        <p>المجموعة الكاملة (ماسك + سيروم + شامبو + بلسم) — 799ج بدل 1200ج والشحن مجانًا</p>
+        <p>المجموعة الكاملة (ماسك + سيروم + شامبو + بلسم) — 799ج والشحن مجانًا</p>
         <div id="offer2-countdown" class="countdown"></div>
-        <button class="btn" data-offer="عرض 2️⃣ - المجموعة الكاملة 799ج بدل 1200ج والشحن مجانًا">اطلبي الآن</button>
+        <button class="btn" data-offer="عرض 2️⃣ - المجموعة الكاملة 799ج والشحن مجانًا">اطلبي الآن</button>
       </div>
     </section>
 
@@ -88,23 +88,6 @@
         });
       });
 
-      // عداد العرض
-      const countdown = document.getElementById('offer2-countdown');
-      if(countdown){
-        let end = localStorage.getItem('carsil_offer2_end');
-        if(!end){ 
-          end = Date.now() + 24*60*60*1000; 
-          localStorage.setItem('carsil_offer2_end', end); 
-        }
-        setInterval(()=>{
-          const diff = end - Date.now();
-          if(diff <= 0){ countdown.textContent = 'انتهى العرض'; return; }
-          const h = Math.floor(diff / 3600000);
-          const m = Math.floor((diff % 3600000) / 60000);
-          const s = Math.floor((diff % 60000) / 1000);
-          countdown.textContent = `العرض ينتهي خلال ${h}س ${m}د ${s}ث`;
-        }, 1000);
-      }
 
       // إرسال النموذج
       const form = document.getElementById('orderForm');
@@ -138,3 +121,4 @@
 
 </body>
 </html>
+
