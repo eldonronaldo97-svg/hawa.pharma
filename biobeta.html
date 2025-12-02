@@ -88,23 +88,7 @@
         });
       });
 
-      // عداد العرض
-      const countdown = document.getElementById('offer2-countdown');
-      if(countdown){
-        let end = localStorage.getItem('carsil_offer2_end');
-        if(!end){ 
-          end = Date.now() + 24*60*60*1000; 
-          localStorage.setItem('carsil_offer2_end', end); 
-        }
-        setInterval(()=>{
-          const diff = end - Date.now();
-          if(diff <= 0){ countdown.textContent = 'انتهى العرض'; return; }
-          const h = Math.floor(diff / 3600000);
-          const m = Math.floor((diff % 3600000) / 60000);
-          const s = Math.floor((diff % 60000) / 1000);
-          countdown.textContent = `العرض ينتهي خلال ${h}س ${m}د ${s}ث`;
-        }, 1000);
-      }
+      
 
       // إرسال النموذج
       const form = document.getElementById('orderForm');
@@ -138,4 +122,5 @@
 
 </body>
 </html>
+
 
